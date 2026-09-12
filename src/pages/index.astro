@@ -1,17 +1,407 @@
 ---
+import Layout from '../layouts/Layout.astro';
 
+const projects = [
+  {
+    name: 'vbldle',
+    stack: 'Html · Firebase',
+    description:
+      'A genshindle/wordle inspired puzzle game guessing for volleyball legends (roblox) styles based on clues.',
+    link: 'https://vbldle.web.app/',
+    icon: '/images/vbldle-icon.png',
+    images: ['/images/vbldle-1.png', '/images/vbldle-2.png', '/images/vbldle-3.png'],
+  },
+  {
+    name: 'PickleBot',
+    stack: 'Express · discord.js · Docker · Ollama',
+    description:
+      'A Discord bot for personal use.',
+    link: '',
+    icon: '/images/picklebot-icon.png',
+    images: ['/images/picklebot-1.png', '/images/picklebot-2.png'],
+  },
+  {
+    name: 'Timer',
+    stack: 'Node.js · Electron.js',
+    description: 'A simple timer electron app. Made this when I needed a simple and distraction free desktop timer application. Inspired by mathsstarters exam timer (old).',
+    link: 'https://github.com/zheyucs/timer',
+    icon: '/images/timer-icon.png',
+    images: ['/images/timer-1.png'],
+  },
+  {
+    name: 'Skibidi Chat',
+    stack: 'Express · Socket.io · Firebase',
+    description:
+      "A real-time chat app, perhaps the most complicated and extensive application I have written. Iterations across months. Started in 2024 as an alternative communication system in school as website restrictions tightened. Spent hours trying to find free hosting that wasn't blocked. No longer maintained since 2025.",
+    link: '',
+    icon: '/images/chat-icon.png',
+    images: ['/images/chat-1.png', '/images/chat-2.png', '/images/chat-3.png','/images/chat-4.png'],
+  },
+  {
+    name: 'Skibidi Projects',
+    stack: 'Express',
+    description:
+      "Multiple small tools written out of boredom or curiosity. Started in 2024 as a way to create and host many small tools on one webservice. Created scripts to trivialise project creation. No longer maintained or ran since 2024.",
+    link: '',
+    icon: '',
+    images: ['/images/miniprojects-1.png', '/images/miniprojects-2.png', '/images/miniprojects-3.png','/images/miniprojects-4.png','/images/miniprojects-5.png','/images/miniprojects-6.png'],
+  },
+  {
+    name: 'CowTube',
+    stack: 'Express · Socket.io',
+    description:
+      "A clicker game with a leaderboard, skins, rolling multipliers and clicking duels. Started in 2024 as a fun \"game\" in school. No longer maintained or ran since 2024. Images are unpopulated as it is from its source html files.",
+    link: 'https://github.com/p1cklethenut/Cow/',
+    icon: '/images/cow-icon.png',
+    images: ['/images/cow-1.png', '/images/cow-2.png', '/images/cow-3.png'],
+  },
+  {
+    name: 'This site/server',
+    stack: 'Oracle Cloud · Docker · nginx · DuckDNS',
+    description:
+      "A free oracle cloud compute unit running docker processes in a Ubuntu VM. Uses nginx along with a registered DuckDNS sub-domain to expose web apps through HTTPS with certbot to the internet. Github actions sshing into the VM to restart the docker process.",
+    link: '/',
+    icon: '',
+    images: ['/images/site-1.png'],
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Zhe Yu">
+  <main class="wrap">
+    <section class="hero">
+      <img class="avatar" src="/images/avatar.png" alt="Zhe Yu" />
+      <div>
+        <h1>Zhe Yu <span class="age">16</span></h1>
+        <p class="role">I write code and solve problems.</p>
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <section>
+      <h2 class="label">Tech</h2>
+      <div class="tech-group">
+        <span class="tech-caption">Languages</span>
+        <img
+          class="tech-icons"
+          src="https://skillicons.dev/icons?i=js,py,cpp,lua&theme=dark"
+          alt="JavaScript, Python, C++, Lua"
+        />
+      </div>
+      <div class="tech-group">
+        <span class="tech-caption">Stack</span>
+        <img
+          class="tech-icons"
+          src="https://skillicons.dev/icons?i=nodejs,express,docker,nginx,githubactions,electron,firebase,git&theme=dark"
+          alt="Node.js, Express, Docker, nginx, GitHub Actions, Electron, Firebase, Git"
+        />
+      </div>
+    </section>
+
+    <hr class="rule" />
+
+    <section>
+      <h2 class="label">About</h2>
+      <p>
+        I often write code to solve problems or create tools and fun applications.
+        <br>Below are some projects I have worked on in the past/present.
+      </p>
+    </section>
+
+    <hr class="rule" />
+
+    <section>
+      <h2 class="label">Projects (7)</h2>
+      <ul class="projects">
+        {
+          projects.map((p) => (
+            <li class="project">
+              {p.images.length > 0 && (
+                <div class="carousel" data-carousel>
+                  <div class="carousel-track">
+                    {p.images.map((img) => (
+                      <img class="carousel-image" src={img} alt={p.name} />
+                    ))}
+                  </div>
+                  {p.images.length > 1 && (
+                    <>
+                      <button class="carousel-btn prev" aria-label="Previous image">
+                        ‹
+                      </button>
+                      <button class="carousel-btn next" aria-label="Next image">
+                        ›
+                      </button>
+                      <div class="carousel-dots">
+                        {p.images.map((_, i) => (
+                          <button
+                            class="dot"
+                            data-index={i}
+                            aria-label={`Go to image ${i + 1}`}
+                          />
+                        ))}
+                      </div>
+                    </>
+                  )}
+                </div>
+              )}
+              <div class="project-head">
+                <h3>
+                  {p.icon && <img class="project-icon" src={p.icon} alt="" />}
+                  {p.link ? <a href={p.link}>{p.name}</a> : <span>{p.name}</span>}
+                </h3>
+                <span class="stack">{p.stack}</span>
+              </div>
+              <p>{p.description}</p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <hr class="rule" />
+
+    <section>
+      <h2 class="label">Contact</h2>
+      <p>
+        <a href="mailto:czheyu.cs@gmail.com">email</a> ·{' '}
+        <a href="https://github.com/zheyucs">github.com/zheyucs</a>
+      </p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .hero {
+    padding-top: var(--space-5);
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+  }
+
+  .avatar {
+    width: 72px;
+    height: 72px;
+    object-fit: cover;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+	.age {
+	font-family: var(--mono);
+	font-size: 0.9rem;
+	font-weight: 400;
+	color: var(--muted);
+	vertical-align: middle;
+	}
+  .role {
+    color: var(--muted);
+    margin-top: var(--space-1);
+  }
+
+  section {
+    padding-bottom: var(--space-1);
+  }
+
+  .tech-group {
+    margin-bottom: var(--space-2);
+  }
+
+  .tech-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .tech-caption {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: var(--space-1);
+  }
+
+  .tech-icons {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  h2.label {
+    margin-bottom: var(--space-3);
+  }
+
+  .projects {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-4) var(--space-3);
+  }
+
+  .project {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* carousel */
+  .carousel {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    margin-bottom: var(--space-2);
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.25s ease;
+  }
+
+  .carousel-image {
+    flex: 0 0 100%;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+    display: block;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(10, 10, 10, 0.6);
+    color: var(--text);
+    border: 1px solid var(--border);
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .carousel-btn:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+
+  .carousel-btn.prev {
+    left: var(--space-1);
+  }
+
+  .carousel-btn.next {
+    right: var(--space-1);
+  }
+
+  .carousel-dots {
+    position: absolute;
+    bottom: var(--space-1);
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--muted);
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    opacity: 0.6;
+  }
+
+  .dot.active {
+    background: var(--accent);
+    opacity: 1;
+  }
+
+  /* project header */
+  .project-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: 2px;
+    gap: var(--space-2);
+    margin-bottom: var(--space-1);
+  }
+
+  .project h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.05rem;
+  }
+
+  .project-icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 25%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .project h3 a {
+    text-decoration: none;
+  }
+
+  .project h3 a:hover {
+    color: var(--accent);
+  }
+
+  .stack {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  main {
+    padding-bottom: var(--space-5);
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll('[data-carousel]').forEach((carousel) => {
+    const track = carousel.querySelector('.carousel-track');
+    const images = carousel.querySelectorAll('.carousel-image');
+    const dots = carousel.querySelectorAll('.dot');
+    const prevBtn = carousel.querySelector('.prev');
+    const nextBtn = carousel.querySelector('.next');
+    let index = 0;
+
+    function update() {
+      track.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, i) => d.classList.toggle('active', i === index));
+    }
+
+    prevBtn?.addEventListener('click', () => {
+      index = (index - 1 + images.length) % images.length;
+      update();
+    });
+
+    nextBtn?.addEventListener('click', () => {
+      index = (index + 1) % images.length;
+      update();
+    });
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        index = i;
+        update();
+      });
+    });
+
+    update();
+  });
+</script>
