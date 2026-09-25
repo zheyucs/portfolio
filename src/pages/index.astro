@@ -33,7 +33,7 @@ const projects = [
     stack: 'Express · Socket.io · Firebase',
     description:
       "A real-time chat app, perhaps the most complicated and extensive application I have written. Iterations across months. Started in 2024 as an alternative communication system in school as website restrictions tightened. Spent hours trying to find free hosting that wasn't blocked. No longer maintained since 2025.",
-    link: '',
+    link: 'https://chat.zycs.duckdns.org',
     icon: '/images/chat-icon.png',
     images: ['/images/chat-1.png', '/images/chat-2.png', '/images/chat-3.png','/images/chat-4.png'],
   },
@@ -42,8 +42,8 @@ const projects = [
     stack: 'Express',
     description:
       "Multiple small tools written out of boredom or curiosity. Started in 2024 as a way to create and host many small tools on one webservice. Created scripts to trivialise project creation. No longer maintained or ran since 2024.",
-    link: '',
-    icon: '',
+    link: 'https://github.com/skiibiidee/mini-projects',
+    icon: '/images/miniprojects-icon.png',
     images: ['/images/miniprojects-1.png', '/images/miniprojects-2.png', '/images/miniprojects-3.png','/images/miniprojects-4.png','/images/miniprojects-5.png','/images/miniprojects-6.png'],
   },
   {
@@ -61,7 +61,7 @@ const projects = [
     description:
       "A free oracle cloud compute unit running docker processes in a Ubuntu VM. Uses nginx along with a registered DuckDNS sub-domain to expose web apps through HTTPS with certbot to the internet. Github actions sshing into the VM to restart the docker process.",
     link: '/',
-    icon: '',
+    icon: '/images/site-icon.png',
     images: ['/images/site-1.png'],
   },
 ];
@@ -74,6 +74,13 @@ const projects = [
       <div>
         <h1>Zhe Yu <span class="age">16</span></h1>
         <p class="role">I write code and solve problems.</p>
+        <p class="contact-row">
+          <span>discord: picklethenut</span>
+          <span class="separator">·</span>
+          <a href="mailto:czheyu.cs@gmail.com">email</a>
+          <span class="separator">·</span>
+          <a href="https://github.com/zheyucs">github.com/zheyucs</a>
+        </p>
       </div>
     </section>
 
@@ -159,15 +166,6 @@ const projects = [
       </ul>
     </section>
 
-    <hr class="rule" />
-
-    <section>
-      <h2 class="label">Contact</h2>
-      <p>
-        <a href="mailto:czheyu.cs@gmail.com">email</a> ·{' '}
-        <a href="https://github.com/zheyucs">github.com/zheyucs</a>
-      </p>
-    </section>
   </main>
 </Layout>
 
@@ -200,6 +198,18 @@ const projects = [
   .role {
     color: var(--muted);
     margin-top: var(--space-1);
+  }
+
+  .contact-row {
+    margin-top: var(--space-1);
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+  }
+
+  .separator {
+    color: var(--border);
+    margin: 0 var(--space-1);
   }
 
   section {
