@@ -3,6 +3,14 @@ import Layout from '../layouts/Layout.astro';
 
 const projects = [
   {
+    name: "Atmos",
+    stack: "Node.js · Express · Chart.js · Docker",
+    description: "A live Singapore air quality dashboard with regional readings, PSI trends. (and a for fun trading system!)",
+    link: "https://haze.zycs.duckdns.org",
+    icon: "/images/atmos-icon.svg",
+    images: ["/images/atmos-1.png", "/images/atmos-2.png", "/images/atmos-3.png"],
+  },
+  {
     name: 'vbldle',
     stack: 'Html · Firebase',
     description:
@@ -119,7 +127,7 @@ const projects = [
     <hr class="rule" />
 
     <section>
-      <h2 class="label">Projects (7)</h2>
+      <h2 class="label">Projects (8)</h2>
       <ul class="projects">
         {
           projects.map((p) => (
